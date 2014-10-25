@@ -1,0 +1,11 @@
+[13:28:34] [main/INFO]: Setting user: Player485
+[13:28:35] [Client thread/INFO]: LWJGL Version: 2.9.1
+[13:28:40] [Client thread/INFO]: Reloading ResourceManager: Default, FMLFileResourcePack:Forge Mod Loader, FMLFileResourcePack:Minecraft Forge, FMLFileResourcePack:Arctic's Sickness Mod
+[13:28:41] [Sound Library Loader/INFO]: Sound engine started
+[13:28:42] [Client thread/INFO]: Created: 512x256 textures/blocks-atlas
+[13:28:42] [Client thread/INFO]: Created: 256x256 textures/items-atlas
+[13:28:42] [Client thread/INFO]: Reloading ResourceManager: Default, FMLFileResourcePack:Forge Mod Loader, FMLFileResourcePack:Minecraft Forge, FMLFileResourcePack:Arctic's Sickness Mod
+[13:28:43] [Client thread/INFO]: Created: 256x256 textures/items-atlas
+[13:28:43] [Client thread/INFO]: Created: 512x256 textures/blocks-atlas
+[13:28:44] [Sound Library Loader/INFO]: Sound engine started
+[13:29:32] [Client thread/INFO]: Stopping!

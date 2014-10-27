@@ -1,5 +1,6 @@
 package com.thebigbadwolf2.SicknessMod;
 
+import com.thebigbadwolf2.SicknessMod.config.ConfigHandler;
 import com.thebigbadwolf2.SicknessMod.proxy.IProxy;
 import com.thebigbadwolf2.SicknessMod.reference.Reference;
 import cpw.mods.fml.common.Mod;
@@ -16,14 +17,14 @@ public class SicknessMod
 	@Mod.Instance(Reference.MOD_ID)
 	public static SicknessMod instance;
 
-	@SidedProxy(clientSide = Reference.CLIENT_PROXY,
-	            serverSide = Reference.SERVER_PROXY)
+	@SidedProxy(clientSide = Reference.CLIENT_PROXY_CLASS,
+	            serverSide = Reference.SERVER_PROXY_CLASS)
 	public static IProxy proxy;
 
 	@Mod.EventHandler
 	public void preInit(FMLPreInitializationEvent event)
 	{
-
+		ConfigHandler.init(event.getSuggestedConfigurationFile());
 	}
 
 	@Mod.EventHandler

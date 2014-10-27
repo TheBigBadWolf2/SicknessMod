@@ -8,6 +8,6 @@ public class Reference
 
 	public static final String MAIN_PACKAGE = "com.thebigbadwolf2."+MOD_ID;
 	public static final String PROXY_PACKAGE = MAIN_PACKAGE+".proxy";
-	public static final String CLIENT_PROXY = PROXY_PACKAGE+".ClientProxy";
-	public static final String SERVER_PROXY = PROXY_PACKAGE+".SERVERProxy";
+	public static final String CLIENT_PROXY_CLASS = PROXY_PACKAGE+".ClientProxy";
+	public static final String SERVER_PROXY_CLASS = PROXY_PACKAGE+".SERVERProxy";
 }

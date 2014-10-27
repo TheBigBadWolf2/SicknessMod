@@ -1,8 +1,9 @@
 package com.thebigbadwolf2.SicknessMod;
 
-import com.thebigbadwolf2.SicknessMod.config.ConfigHandler;
+import com.thebigbadwolf2.SicknessMod.handler.ConfigHandler;
 import com.thebigbadwolf2.SicknessMod.proxy.IProxy;
 import com.thebigbadwolf2.SicknessMod.reference.Reference;
+import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
@@ -11,7 +12,8 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 
 @Mod(modid = Reference.MOD_ID,
      name = Reference.MOD_NAME,
-     version = Reference.VERSION)
+     version = Reference.VERSION,
+     guiFactory = Reference.GUI_FACTORY_CLASS)
 public class SicknessMod
 {
 	@Mod.Instance(Reference.MOD_ID)
@@ -30,7 +32,7 @@ public class SicknessMod
 	@Mod.EventHandler
 	public void init(FMLInitializationEvent event)
 	{
-
+		FMLCommonHandler.instance().bus().register(instance);
 	}
 
 	@Mod.EventHandler

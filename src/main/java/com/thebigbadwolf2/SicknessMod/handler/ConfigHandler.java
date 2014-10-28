@@ -15,7 +15,10 @@ public class ConfigHandler
 	public static void init(File configFile)
 	{
 		if (config == null)
+		{
 			config = new Configuration(configFile);
+			loadConfig();
+		}
 	}
 
 	@SubscribeEvent
@@ -27,7 +30,7 @@ public class ConfigHandler
 		}
 	}
 
-	public void loadConfig()
+	private static void loadConfig()
 	{
 		testValue = config.getBoolean("configValue",
 		                              Configuration.CATEGORY_GENERAL, false,

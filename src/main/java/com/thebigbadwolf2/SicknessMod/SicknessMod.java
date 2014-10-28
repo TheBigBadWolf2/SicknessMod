@@ -3,6 +3,7 @@ package com.thebigbadwolf2.SicknessMod;
 import com.thebigbadwolf2.SicknessMod.handler.ConfigHandler;
 import com.thebigbadwolf2.SicknessMod.proxy.IProxy;
 import com.thebigbadwolf2.SicknessMod.reference.Reference;
+import com.thebigbadwolf2.SicknessMod.utility.LogHelper;
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.SidedProxy;
@@ -27,17 +28,19 @@ public class SicknessMod
 	public void preInit(FMLPreInitializationEvent event)
 	{
 		ConfigHandler.init(event.getSuggestedConfigurationFile());
+		FMLCommonHandler.instance().bus().register(new ConfigHandler());
+		LogHelper.info("Pre Initialization Complete!");
 	}
 
 	@Mod.EventHandler
 	public void init(FMLInitializationEvent event)
 	{
-		FMLCommonHandler.instance().bus().register(instance);
+		LogHelper.info("Initialization Complete!");
 	}
 
 	@Mod.EventHandler
 	public void postInit(FMLPostInitializationEvent event)
 	{
-
+		LogHelper.info("Post Initialization Complete!");
 	}
 }

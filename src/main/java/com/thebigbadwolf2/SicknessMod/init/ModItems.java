@@ -4,8 +4,10 @@ import com.thebigbadwolf2.SicknessMod.item.ItemBlueDust;
 import com.thebigbadwolf2.SicknessMod.item.ItemGreenDust;
 import com.thebigbadwolf2.SicknessMod.item.ItemRedDust;
 import com.thebigbadwolf2.SicknessMod.item.ItemWSMod;
+import com.thebigbadwolf2.SicknessMod.reference.Reference;
 import cpw.mods.fml.common.registry.GameRegistry;
 
+@GameRegistry.ObjectHolder(Reference.MOD_ID)
 public class ModItems
 {
 	public static final ItemWSMod redDust = new ItemRedDust();

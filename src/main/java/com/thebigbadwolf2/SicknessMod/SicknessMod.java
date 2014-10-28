@@ -1,6 +1,7 @@
 package com.thebigbadwolf2.SicknessMod;
 
 import com.thebigbadwolf2.SicknessMod.handler.ConfigHandler;
+import com.thebigbadwolf2.SicknessMod.init.ModBlocks;
 import com.thebigbadwolf2.SicknessMod.init.ModItems;
 import com.thebigbadwolf2.SicknessMod.proxy.IProxy;
 import com.thebigbadwolf2.SicknessMod.reference.Reference;
@@ -33,6 +34,7 @@ public class SicknessMod
 		LogHelper.info("Pre Initialization Complete!");
 
 		ModItems.init();
+		ModBlocks.init();
 	}
 
 	@Mod.EventHandler

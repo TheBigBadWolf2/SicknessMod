@@ -12,6 +12,17 @@ public class ItemWSMod extends Item
 	public ItemWSMod()
 	{
 		super();
+		this.setUnlocalizedName(Name());
+	}
+
+	private String Name()
+	{
+		String name = this.getClass().getSimpleName();
+		name = name.replaceFirst("Item","");
+		char[] nameChar = name.toCharArray();
+		nameChar[0] = name.toLowerCase().charAt(0);
+		name = String.valueOf(nameChar);
+		return name;
 	}
 
 	@Override

@@ -1,8 +1,8 @@
 package com.thebigbadwolf2.SicknessMod.item;
 
-public class ItemRedDust extends ItemDust
+public class ItemDust extends ItemWSMod
 {
-	public ItemRedDust()
+	public ItemDust()
 	{
 		super();
 	}

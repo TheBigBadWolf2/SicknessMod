@@ -1,3 +1,7 @@
 item.sicknessmod:redDust.name=Red Dust
 item.sicknessmod:greenDust.name=Green Dust
 item.sicknessmod:blueDust.name=Blue Dust
+
+tile.sicknessmod:compactedRedDust.name=Compacted Red Dust
+tile.sicknessmod:compactedGreenDust.name=Compacted Green Dust
+tile.sicknessmod:compactedBlueDust.name=Compacted Blue Dust

@@ -1,5 +1,6 @@
 package com.thebigbadwolf2.SicknessMod.item;
 
+import com.thebigbadwolf2.SicknessMod.creativetab.CreativeTabWSMod;
 import com.thebigbadwolf2.SicknessMod.reference.Reference;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -13,6 +14,7 @@ public class ItemWSMod extends Item
 	{
 		super();
 		this.setUnlocalizedName(Name());
+		this.setCreativeTab(CreativeTabWSMod.WSMod_TAB_ITEMS);
 	}
 
 	private String Name()

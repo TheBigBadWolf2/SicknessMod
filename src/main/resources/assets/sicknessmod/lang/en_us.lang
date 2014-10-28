@@ -5,3 +5,6 @@ item.sicknessmod:blueDust.name=Blue Dust
 tile.sicknessmod:compactedRedDust.name=Compacted Red Dust
 tile.sicknessmod:compactedGreenDust.name=Compacted Green Dust
 tile.sicknessmod:compactedBlueDust.name=Compacted Blue Dust
+
+itemGroup.sicknessmod.items=Wolfy's Sickness Mod Items
+itemGroup.sicknessmod.blocks=Wolfy's Sickness Mod Blocks

@@ -1,5 +1,6 @@
 package com.thebigbadwolf2.SicknessMod.block;
 
+import com.thebigbadwolf2.SicknessMod.creativetab.CreativeTabWSMod;
 import com.thebigbadwolf2.SicknessMod.reference.Reference;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -13,6 +14,7 @@ public class BlockWSMod extends Block
 	{
 		super(material);
 		this.setBlockName(Name());
+		this.setCreativeTab(CreativeTabWSMod.WSMod_TAB_BLOCKS);
 	}
 
 	public BlockWSMod()

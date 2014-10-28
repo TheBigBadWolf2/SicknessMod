@@ -1,6 +1,7 @@
 package com.thebigbadwolf2.SicknessMod;
 
 import com.thebigbadwolf2.SicknessMod.handler.ConfigHandler;
+import com.thebigbadwolf2.SicknessMod.init.ModItems;
 import com.thebigbadwolf2.SicknessMod.proxy.IProxy;
 import com.thebigbadwolf2.SicknessMod.reference.Reference;
 import com.thebigbadwolf2.SicknessMod.utility.LogHelper;
@@ -30,6 +31,8 @@ public class SicknessMod
 		ConfigHandler.init(event.getSuggestedConfigurationFile());
 		FMLCommonHandler.instance().bus().register(new ConfigHandler());
 		LogHelper.info("Pre Initialization Complete!");
+
+		ModItems.init();
 	}
 
 	@Mod.EventHandler

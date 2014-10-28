@@ -1,11 +1,31 @@
-[16:58:07] [main/INFO]: Setting user: Player129
-[16:58:09] [Client thread/INFO]: LWJGL Version: 2.9.1
-[16:58:17] [Client thread/INFO]: Reloading ResourceManager: Default, FMLFileResourcePack:Forge Mod Loader, FMLFileResourcePack:Minecraft Forge, FMLFileResourcePack:Arctic's Sickness Mod
-[16:58:19] [Client thread/INFO]: Created: 512x256 textures/blocks-atlas
-[16:58:20] [Client thread/INFO]: Created: 256x256 textures/items-atlas
-[16:58:20] [Client thread/INFO]: Reloading ResourceManager: Default, FMLFileResourcePack:Forge Mod Loader, FMLFileResourcePack:Minecraft Forge, FMLFileResourcePack:Arctic's Sickness Mod
-[16:58:20] [Client thread/INFO]: Created: 256x256 textures/items-atlas
-[16:58:20] [Client thread/INFO]: Created: 512x256 textures/blocks-atlas
-[16:58:58] [Sound Library Loader/INFO]: Sound engine started
-[16:58:58] [Sound Library Loader/INFO]: Sound engine started
-[16:59:11] [Client thread/INFO]: Stopping!
+[15:14:07] [main/INFO]: Setting user: Player916
+[15:14:08] [Client thread/INFO]: LWJGL Version: 2.9.1
+[15:14:13] [Client thread/INFO]: Reloading ResourceManager: Default, FMLFileResourcePack:Forge Mod Loader, FMLFileResourcePack:Minecraft Forge, FMLFileResourcePack:Arctic's Sickness Mod
+[15:14:14] [Sound Library Loader/INFO]: Sound engine started
+[15:14:15] [Client thread/INFO]: Created: 512x256 textures/blocks-atlas
+[15:14:15] [Client thread/INFO]: Created: 256x256 textures/items-atlas
+[15:14:15] [Client thread/INFO]: Reloading ResourceManager: Default, FMLFileResourcePack:Forge Mod Loader, FMLFileResourcePack:Minecraft Forge, FMLFileResourcePack:Arctic's Sickness Mod
+[15:14:15] [Client thread/INFO]: Created: 256x256 textures/items-atlas
+[15:14:15] [Client thread/INFO]: Created: 512x256 textures/blocks-atlas
+[15:14:16] [Sound Library Loader/INFO]: Sound engine started
+[15:14:24] [Server thread/INFO]: Starting integrated minecraft server version 1.7.10
+[15:14:24] [Server thread/INFO]: Generating keypair
+[15:14:25] [Server thread/INFO]: Preparing start region for level 0
+[15:14:25] [Server thread/INFO]: Changing view distance to 12, from 10
+[15:14:26] [Server thread/INFO]: Player916[local:E:5818f45e] logged in with entity id 199 at (-92.08742676118368, 4.0, -878.9885522202518)
+[15:14:26] [Server thread/INFO]: Player916 joined the game
+[15:14:27] [Server thread/INFO]: Saving and pausing game...
+[15:14:27] [Server thread/INFO]: Saving chunks for level 'New World'/Overworld
+[15:14:27] [Server thread/INFO]: Saving chunks for level 'New World'/Nether
+[15:14:27] [Server thread/INFO]: Saving chunks for level 'New World'/The End
+[15:14:44] [Server thread/INFO]: Saving and pausing game...
+[15:14:44] [Server thread/INFO]: Saving chunks for level 'New World'/Overworld
+[15:14:44] [Server thread/INFO]: Saving chunks for level 'New World'/Nether
+[15:14:44] [Server thread/INFO]: Saving chunks for level 'New World'/The End
+[15:14:45] [Server thread/INFO]: Stopping server
+[15:14:45] [Server thread/INFO]: Saving players
+[15:14:45] [Server thread/INFO]: Saving worlds
+[15:14:45] [Server thread/INFO]: Saving chunks for level 'New World'/Overworld
+[15:14:45] [Server thread/INFO]: Saving chunks for level 'New World'/Nether
+[15:14:45] [Server thread/INFO]: Saving chunks for level 'New World'/The End
+[15:14:47] [Client thread/INFO]: Stopping!

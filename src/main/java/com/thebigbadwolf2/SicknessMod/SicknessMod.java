@@ -1,6 +1,7 @@
 package com.thebigbadwolf2.SicknessMod;
 
 import com.thebigbadwolf2.SicknessMod.handler.ConfigHandler;
+import com.thebigbadwolf2.SicknessMod.handler.EventHandlerWSMod;
 import com.thebigbadwolf2.SicknessMod.init.ModBlocks;
 import com.thebigbadwolf2.SicknessMod.init.ModItems;
 import com.thebigbadwolf2.SicknessMod.proxy.IProxy;
@@ -12,6 +13,9 @@ import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import cpw.mods.fml.common.eventhandler.SubscribeEvent;
+import cpw.mods.fml.common.registry.GameRegistry;
+import net.minecraftforge.common.MinecraftForge;
 
 @Mod(modid = Reference.MOD_ID,
      name = Reference.MOD_NAME,
@@ -31,10 +35,13 @@ public class SicknessMod
 	{
 		ConfigHandler.init(event.getSuggestedConfigurationFile());
 		FMLCommonHandler.instance().bus().register(new ConfigHandler());
+		MinecraftForge.EVENT_BUS.register(new EventHandlerWSMod());
 		LogHelper.info("Pre Initialization Complete!");
 
 		ModItems.init();
 		ModBlocks.init();
+
+
 	}
 
 	@Mod.EventHandler

@@ -64,7 +64,7 @@ public class BlockColoredFire extends Block
 					int y2 = y+j;
 					int z2 = z+k;
 
-					if (world.isAirBlock(x2,y2,z2));
+					if (world.isAirBlock(x2,y2,z2))
 						world.setBlock(x2,y2,z2, Blocks.fire);
 				}
 			}

@@ -59,7 +59,7 @@ public class BlockColoredFire extends Block
 
 		for (int i = -range; i <= range;i++){
 			for (int j = -range; j <= range;j++){
-				for (int k = -range; k <= range;i++){
+				for (int k = -range; k <= range;k++){
 					int x2 = x+i;
 					int y2 = y+j;
 					int z2 = z+k;

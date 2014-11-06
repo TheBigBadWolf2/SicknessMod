@@ -32,6 +32,10 @@ public class BlockWSMod extends Block
 		return name;
 	}
 
+	public String getName(){
+		return Name();
+	}
+
 	@Override
 	public String getUnlocalizedName()
 	{

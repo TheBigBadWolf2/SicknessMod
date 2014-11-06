@@ -10,7 +10,7 @@ import java.io.File;
 public class ConfigHandler
 {
 	public static Configuration config;
-	public static boolean testValue = false;
+	public static boolean inDev = false;
 
 	public static void init(File configFile)
 	{
@@ -32,9 +32,9 @@ public class ConfigHandler
 
 	private static void loadConfig()
 	{
-		testValue = config.getBoolean("configValue",
-		                              Configuration.CATEGORY_GENERAL, false,
-		                              "This is an example config");
+		inDev = config.getBoolean("Is Being Developed",
+		                          Configuration.CATEGORY_GENERAL, false,
+		                          "Whether or Not this mod is being developed");
 
 		if (config.hasChanged())
 			config.save();

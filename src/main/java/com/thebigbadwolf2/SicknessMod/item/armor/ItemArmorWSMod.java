@@ -1,24 +1,23 @@
-package com.thebigbadwolf2.SicknessMod.item;
+package com.thebigbadwolf2.SicknessMod.item.armor;
 
-import com.thebigbadwolf2.SicknessMod.creativetab.CreativeTabWSMod;
 import com.thebigbadwolf2.SicknessMod.reference.Reference;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.renderer.texture.IIconRegister;
-import net.minecraft.item.Item;
+import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
 
-public class ItemWSMod extends Item
+public class ItemArmorWSMod extends ItemArmor
 {
-	public ItemWSMod(){
-		super();
+	public ItemArmorWSMod(ArmorMaterial material, int render, int type)
+	{
+		super(material, render, type);
 		this.setUnlocalizedName(Name());
-		this.setCreativeTab(CreativeTabWSMod.WSMod_TAB_ITEMS);
 	}
 
 	private String Name(){
 		String name = this.getClass().getSimpleName();
-		name = name.replaceFirst("Item","");
+		name = name.replaceFirst("ItemArmor","");
 		char[] nameChar = name.toCharArray();
 		nameChar[0] = name.toLowerCase().charAt(0);
 		name = String.valueOf(nameChar);
@@ -33,7 +32,7 @@ public class ItemWSMod extends Item
 	public String getUnlocalizedName(){
 		return String.format("item.%s%s",
 		                     Reference.MOD_ID.toLowerCase() + ":",
-		                     getUnwrappedUnlocalizedName(super.getUnlocalizedName()));
+		                     getUnwrappedUnlocalizedName(super.getUnlocalizedName())+this.armorType);
 	}
 
 	@Override

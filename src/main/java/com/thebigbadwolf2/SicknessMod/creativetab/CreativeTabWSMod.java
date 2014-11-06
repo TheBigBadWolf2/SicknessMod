@@ -25,4 +25,13 @@ public class CreativeTabWSMod
 			return ModBlocks.compactedRedDust.getItem(null,0,0,0);
 		}
 	};
+
+	public static final CreativeTabs WSMod_TAB_MED = new CreativeTabs(Reference.MOD_ID.toLowerCase()+".medicine")
+	{
+		@Override
+		public Item getTabIconItem()
+		{
+			return ModItems.pillBase;
+		}
+	};
 }

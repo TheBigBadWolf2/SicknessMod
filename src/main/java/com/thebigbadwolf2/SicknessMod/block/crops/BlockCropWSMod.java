@@ -97,7 +97,6 @@ public class BlockCropWSMod extends BlockBush implements IGrowable
 	@Override
 	public boolean canPlaceBlockOn(Block block)
 	{
-		Material material = block.getMaterial();
 		return ModBlocks.isOrganic(block);
 	}
 
@@ -240,8 +239,8 @@ public class BlockCropWSMod extends BlockBush implements IGrowable
 	public void updateTick(World world, int x, int y, int z, Random rand)
 	{
 		super.updateTick(world, x, y, z, rand);
-		float f = 5.0f;
-		if (rand.nextInt((int)(25.0F / f) + 1) == 0)incrementGrowStage(world, rand, x, y, z);
+		int chance = 6;
+		if (rand.nextInt(chance) == 0)incrementGrowStage(world, rand, x, y, z);
 	}
 
 

@@ -28,10 +28,12 @@ public class BlockDecomp extends BlockWSMod
 	public void updateTick(World world, int x, int y, int z, Random rand)
 	{
 		for (int i = -1; i <= 1; i++)
-			for (int j = -1; j <= 0; j++)
+			for (int j = -2; j <= 1; j++)
 				for (int k = -1; k <= 1; k++)
 					if (canReplace(world.getBlock(x+i,y+j,z+k)))
-						world.setBlock(x+i,y+j,z+k, ModBlocks.decomp);
+						if (rand.nextInt(20)==0)
+							if (world.getBlock(x+i,y+j,z+k)!=ModBlocks.encrustedMycelium)
+								world.setBlock(x+i,y+j,z+k, ModBlocks.decomp);
 
 	}
 }

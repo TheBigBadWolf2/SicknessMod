@@ -1,5 +1,7 @@
 package com.thebigbadwolf2.SicknessMod.init;
 
+import com.thebigbadwolf2.SicknessMod.item.ItemConvertDustA;
+import com.thebigbadwolf2.SicknessMod.item.ItemConvertDustB;
 import com.thebigbadwolf2.SicknessMod.item.armor.ItemArmorGasMask;
 import com.thebigbadwolf2.SicknessMod.item.armor.ItemArmorWSMod;
 import com.thebigbadwolf2.SicknessMod.item.dust.ItemBlueDust;
@@ -21,6 +23,9 @@ public class ModItems
 	public static final ItemWSMod redDust = new ItemRedDust();
 	public static final ItemWSMod greenDust = new ItemGreenDust();
 	public static final ItemWSMod blueDust = new ItemBlueDust();
+
+	public static final ItemWSMod conversionDustA = new ItemConvertDustA();
+	public static final ItemWSMod conversionDustB = new ItemConvertDustB();
 
 	public static final ItemEdible nutrientPaste = new ItemNutrientPaste();
 	public static final ItemEdible throwUp = new ItemThrowUp();
@@ -44,6 +49,8 @@ public class ModItems
 		registerDust();
 		registerFood();
 		registerSeeds();
+		GameRegistry.registerItem(conversionDustA,"conversionDustA");
+		GameRegistry.registerItem(conversionDustB,"conversionDustB");
 		GameRegistry.registerItem(gasMask,"gasMask");
 		GameRegistry.registerItem(gasSuitChest,"gasSuitChest");
 		GameRegistry.registerItem(gasSuitLegs,"gasSuitLegs");

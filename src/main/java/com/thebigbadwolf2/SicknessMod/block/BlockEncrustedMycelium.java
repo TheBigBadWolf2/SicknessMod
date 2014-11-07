@@ -57,10 +57,20 @@ public class BlockEncrustedMycelium extends BlockWSMod
 	@Override
 	public void updateTick(World world, int x, int y, int z, Random rand)
 	{
+		if (!(world.isAirBlock(x,y+1,z)||world.getBlock(x,y+1,z) instanceof BlockCropWSMod))
+			world.setBlock(x,y,z,ModBlocks.decomp);
 		for (int i = -1; i <= 1; i++)
 			for (int j = -1; j <= 0; j++)
 				for (int k = -1; k <= 1; k++)
 					if (canReplace(world.getBlock(x+i,y+j,z+k)))
-						world.setBlock(x+i,y+j,z+k, ModBlocks.decomp);
+						if (rand.nextInt(20)==0)
+							world.setBlock(x+i,y+j,z+k, ModBlocks.decomp);
+		for (int i = -1; i <= 1; i++)
+			for (int j = -2; j <= 1; j++)
+				for (int k = -1; k <= 1; k++)
+					if (world.getBlock(x+i,y+j,z+k)==ModBlocks.decomp)
+						if (world.isAirBlock(x+i,y+j+1,z+k)||world.getBlock(x+i,y+j+1,z+k) instanceof BlockCropWSMod)
+							if (rand.nextInt(10)==0)
+								world.setBlock(x+i,y+j,z+k,this);
 	}
 }

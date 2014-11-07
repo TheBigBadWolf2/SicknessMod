@@ -176,67 +176,65 @@ public class BlockWeed extends BlockCropWSMod implements IGrowable
 			world.getBlock(x,y,z).dropBlockAsItem(world,x,y,z,0,0);
 			world.setBlockToAir(x,y,z);
 		}
-		if (rand.nextInt(2)==0)
+		for (int i = -1; i <= 1; i++)
 		{
-			for (int i = -1; i <= 1; i++)
+			for (int j = -1; j <= 1; j++)
 			{
-				for (int j = -1; j <= 1; j++)
+				for (int k = -1; k <= 1; k++)
 				{
-					for (int k = -1; k <= 1; k++)
-					{
-						if (!(x==0&&y==0&&z==0))world.markBlockForUpdate(x+i,y+j,z+k);
-					}
-				}
-
-			}
-			if (canGrow(world, x, y, z))
-			{
-				world.setBlockMetadataWithNotify(x, y, z, 1, 2);
-				world.setBlock(x, y + 1, z, this, 2, 3);
-			}
-
-			if (world.getBlockMetadata(x, y, z) == 0 &&
-			    world.isAirBlock(x, y + 1, z))
-				world.setBlock(x, y + 1, z, this, 2, 0);
-
-			if (world.getBlockMetadata(x, y, z) == 1 &&
-			    world.isAirBlock(x, y + 1, z))
-				world.setBlock(x, y + 1, z, this, 2, 0);
-
-			for (int i = -2; i <= 2; i++)
-			{
-				for (int j = -1; j <= 3; j++)
-				{
-					for (int k = -2; k <= 2; k++)
-					{
-						if (plant.canReplace(world, x + i, y + j, z + k) &&
-						    plant.canPlaceBlockOn(world.getBlock(x + i, y + j - 1, z + k)))
-						{
-							world.setBlock(x + i, y + j, z + k, plant);
-						}
-					}
+					if (!(x==0&&y==0&&z==0))world.markBlockForUpdate(x+i,y+j,z+k);
 				}
 			}
-			for (int i = 0; i < world.getLoadedEntityList().size(); i++)
+
+		}
+		if (canGrow(world, x, y, z))
+		{
+			world.setBlockMetadataWithNotify(x, y, z, 1, 2);
+			world.setBlock(x, y + 1, z, this, 2, 3);
+		}
+
+		if (world.getBlockMetadata(x, y, z) == 0 &&
+		    world.isAirBlock(x, y + 1, z))
+			world.setBlock(x, y + 1, z, this, 2, 0);
+
+		if (world.getBlockMetadata(x, y, z) == 1 &&
+		    world.isAirBlock(x, y + 1, z))
+			world.setBlock(x, y + 1, z, this, 2, 0);
+
+		for (int i = -2; i <= 2; i++)
+		{
+			for (int j = -1; j <= 3; j++)
 			{
-				if ((world.getLoadedEntityList().get(i)) instanceof EntityLivingBase)
+				for (int k = -2; k <= 2; k++)
 				{
-					EntityLivingBase entity = (EntityLivingBase)world.getLoadedEntityList().get(i);
-					if (entity.getPosition(1.0f).distanceTo(Vec3.createVectorHelper(x, y, z)) < 20)
+					if (plant.canReplace(world, x + i, y + j, z + k) &&
+					    plant.canPlaceBlockOn(world.getBlock(x + i, y + j - 1, z + k)))
 					{
-						if (entity.getEquipmentInSlot(4)!= null){
-							if(entity.getEquipmentInSlot(4).getItem()!= ModItems.gasMask)
-								gas(rand,entity);
-						}
-						else gas(rand,entity);
+						world.setBlock(x + i, y + j, z + k, plant);
 					}
 				}
 			}
 		}
+		for (int i = 0; i < world.getLoadedEntityList().size(); i++)
+		{
+			if ((world.getLoadedEntityList().get(i)) instanceof EntityLivingBase)
+			{
+				EntityLivingBase entity = (EntityLivingBase)world.getLoadedEntityList().get(i);
+				if (entity.getPosition(1.0f).distanceTo(Vec3.createVectorHelper(x, y, z)) < 20)
+				{
+					if (entity.getEquipmentInSlot(4)!= null){
+						if(entity.getEquipmentInSlot(4).getItem()!= ModItems.gasMask)
+							gas(rand,entity);
+					}
+					else gas(rand,entity);
+				}
+			}
+		}
+
 	}
 
 	private void gas(Random rand, EntityLivingBase entity){
-		if (rand.nextInt(100) == 0){
+		if (rand.nextInt(10) == 0){
 			PotionEffect effect = new PotionEffect(ModPotion.poisonGas.getId(), 100, 0, true);
 			effect.setCurativeItems(new ArrayList<ItemStack>());
 			entity.addPotionEffect(effect);

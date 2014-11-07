@@ -4,15 +4,25 @@ import com.thebigbadwolf2.SicknessMod.reference.Reference;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.entity.Entity;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.common.util.EnumHelper;
 
 public class ItemArmorWSMod extends ItemArmor
 {
+	public static ArmorMaterial gasSuit = EnumHelper.addArmorMaterial("gasSuit",100,new int[]{3, 8, 6, 3},30);
+
 	public ItemArmorWSMod(ArmorMaterial material, int render, int type)
 	{
 		super(material, render, type);
-		this.setUnlocalizedName(Name());
+		this.setUnlocalizedName(Name()+"_"+(this.armorType == 0 ? "helmet" : (this.armorType == 1 ? "chest" : (this.armorType == 2 ? "legs" : "boots"))));
+	}
+
+	@Override
+	public String getArmorTexture(ItemStack stack, Entity entity, int slot, String type)
+	{
+		return Reference.MOD_ID + ":textures/items/" + this.getName() + "_" + (this.armorType == 2 ? "2" : "1") + ".png";
 	}
 
 	private String Name(){
@@ -32,7 +42,7 @@ public class ItemArmorWSMod extends ItemArmor
 	public String getUnlocalizedName(){
 		return String.format("item.%s%s",
 		                     Reference.MOD_ID.toLowerCase() + ":",
-		                     getUnwrappedUnlocalizedName(super.getUnlocalizedName())+this.armorType);
+		                     getUnwrappedUnlocalizedName(super.getUnlocalizedName()));
 	}
 
 	@Override

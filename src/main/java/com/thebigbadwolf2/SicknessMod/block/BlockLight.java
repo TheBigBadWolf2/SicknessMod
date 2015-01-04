@@ -15,11 +15,13 @@ import net.minecraft.world.World;
 public class BlockLight extends BlockWSMod implements ITileEntityProvider {
 
 	public BlockLight(){
-		super(Material.air);
+		super(Material.glass);
 		float f = 0.45f;
 		this.setLightLevel(1);
 		this.setBlockBounds(f,f,f,1f-f,1f-f,1f-f);
 	}
+
+	public int damageDropped(int meta) { return meta; }
 
 	@Override
 	public boolean isReplaceable(IBlockAccess world, int x, int y, int z) {

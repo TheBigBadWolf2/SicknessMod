@@ -6,20 +6,26 @@ import net.minecraft.world.World;
 
 public class TileEntityLight extends TileEntity{
 
+	int tick = 0;
+
 	@Override
 	public void updateEntity() {
-		int x = xCoord;
-		int y = yCoord;
-		int z = zCoord;
-		int meta = blockMetadata;
-		if (check(worldObj,x,y,z,meta))
-			if (meta>0){
-				expand(worldObj,x+1,y,z,meta-1);
-				expand(worldObj,x-1,y,z,meta-1);
-				expand(worldObj,x,y,z+1,meta-1);
-				expand(worldObj,x,y,z-1,meta-1);
-				expand(worldObj,x,y-1,z,meta-1);
+		if (tick%10==0) {
+			int x = xCoord;
+			int y = yCoord;
+			int z = zCoord;
+			int meta = blockMetadata;
+			if (meta == -1) worldObj.setBlockToAir(x, y, z);
+			//System.out.println(String.format("TE at (%d,%d,%d) with metadata: (%d) updated",x,y,z,meta));
+			if (check(worldObj, x, y, z, meta)) if (meta > 0) {
+				expand(worldObj, x + 1, y, z, meta - 1);
+				expand(worldObj, x - 1, y, z, meta - 1);
+				expand(worldObj, x, y, z + 1, meta - 1);
+				expand(worldObj, x, y, z - 1, meta - 1);
+				expand(worldObj, x, y - 1, z, meta - 1);
 			}
+		}
+		tick++;
 	}
 
 	private boolean check(World world, int x, int y, int z, int meta){
@@ -39,8 +45,18 @@ public class TileEntityLight extends TileEntity{
 		if (world.getBlock(x,y+1,z)==getBlockType())
 			if (world.getBlockMetadata(x,y+1,z)>meta)
 				shouldDisappear = false;
+
+		if (world.getBlock(x+1,y,z) == ModBlocks.lamp)
+			shouldDisappear = false;
+		if (world.getBlock(x-1,y,z) == ModBlocks.lamp)
+			shouldDisappear = false;
+		if (world.getBlock(x,y,z+1) == ModBlocks.lamp)
+			shouldDisappear = false;
+		if (world.getBlock(x,y,z-1) == ModBlocks.lamp)
+			shouldDisappear = false;
 		if (world.getBlock(x,y+1,z) == ModBlocks.lamp)
 			shouldDisappear = false;
+
 		if (shouldDisappear) {
 			world.setBlockToAir(x, y, z);
 			if (world.getBlock(x+1,y,z)==getBlockType())

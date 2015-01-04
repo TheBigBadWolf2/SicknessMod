@@ -24,6 +24,7 @@ import com.thebigbadwolf2.SicknessMod.block.ore.BlockRedOre;
 import com.thebigbadwolf2.SicknessMod.item.itemblock.ItemBlockMimic;
 import com.thebigbadwolf2.SicknessMod.reference.Reference;
 import com.thebigbadwolf2.SicknessMod.tileentity.TileEntityDoorControl;
+import com.thebigbadwolf2.SicknessMod.tileentity.TileEntityLamp;
 import com.thebigbadwolf2.SicknessMod.tileentity.TileEntityLight;
 import com.thebigbadwolf2.SicknessMod.tileentity.TileEntityWSMod;
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -74,7 +75,8 @@ public class ModBlocks
 		GameRegistry.registerBlock(decomp,"decomp");
 		GameRegistry.registerBlock(mimic, ItemBlockMimic.class,mimic.getName());
 		GameRegistry.registerBlock(lamp,"lamp");
-		GameRegistry.registerBlock(light,"light");
+		GameRegistry.registerBlock(light, "light");
+		GameRegistry.registerTileEntity(TileEntityLamp.class,"TileEntityLamp");
 		GameRegistry.registerTileEntity(TileEntityLight.class,"TileEntityLight");
 		registerFire();
 		registerOre();

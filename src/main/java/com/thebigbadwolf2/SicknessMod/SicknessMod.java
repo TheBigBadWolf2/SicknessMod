@@ -13,6 +13,7 @@ import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
+import cpw.mods.fml.common.event.FMLInterModComms;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
@@ -79,7 +80,7 @@ public class SicknessMod
 	@Mod.EventHandler
 	public void init(FMLInitializationEvent event)
 	{
-
+		FMLInterModComms.sendMessage("Waila", "register", Reference.WAILA_DATA + ".callbackRegister");
 		Recipes.init();
 		LogHelper.info("Initialization Complete!");
 	}
@@ -89,8 +90,8 @@ public class SicknessMod
 	{
 		LogHelper.info("Post Initialization Complete!");
 
-		for (String oreName : OreDictionary.getOreNames()){
+		/*for (String oreName : OreDictionary.getOreNames()){
 			LogHelper.info(oreName);
-		}
+		}*/
 	}
 }

@@ -22,10 +22,27 @@ group= "com.thebigbadwolf2.SicknessMod" // http://maven.apache.org/guides/mini/g
 archivesBaseName = "TheSicknessMod"
 
 minecraft {
-    version = "1.7.10-10.13.2.1230"
+    version = "1.7.10-10.13.2.1232"
+}
+
+repositories {
+    maven { // The repo from which to get waila
+        name "Mobius Repo"
+        url "http://mobiusstrip.eu/maven"
+    }
+    maven { // the repo from which to get NEI and stuff
+        name 'CB Repo'
+        url "http://chickenbones.net/maven/"
+    }
 }
 
 dependencies {
+
+    compile "codechicken:CodeChickenLib:1.7.10-1.1.1.105:dev"
+    compile "codechicken:CodeChickenCore:1.7.10-1.0.4.29:dev"
+    compile "codechicken:NotEnoughItems:1.7.10-1.0.3.66:dev"
+    compile "mcp.mobius.waila:Waila:1.5.6_dev1_1.7.10"
+
     // you may put jars on which you depend on in ./libs
     // or you may define them like so..
     //compile "some.group:artifact:version:classifier"

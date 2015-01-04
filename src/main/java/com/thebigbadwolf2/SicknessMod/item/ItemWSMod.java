@@ -5,13 +5,35 @@ import com.thebigbadwolf2.SicknessMod.reference.Reference;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class ItemWSMod extends Item
 {
+	boolean hasSubItems;
+	protected ArrayList<String> subNames;
+
+	private int[] glows;
+
 	public ItemWSMod(){
+		this(false);
+	}
+
+	public ItemWSMod(boolean hasSubItems){
+		this(hasSubItems,null);
+	}
+
+	public ItemWSMod(boolean hasSubItems, int[] glows){
 		super();
+		this.hasSubItems = hasSubItems;
+		this.glows = glows;
+		if (this.hasSubItems)
+			subNames = new ArrayList<String>();
+		this.setHasSubtypes(hasSubItems);
 		this.setUnlocalizedName(Name());
 		this.setCreativeTab(CreativeTabWSMod.WSMod_TAB_ITEMS);
 	}
@@ -37,10 +59,36 @@ public class ItemWSMod extends Item
 	}
 
 	@Override
+	public void getSubItems(Item item, CreativeTabs tabs, List list){
+		if (subNames!=null
+		    &&subNames.size()!=0)
+			for (int i = 0; i < subNames.size(); i++)
+				list.add(new ItemStack(this,1,i));
+		else list.add(new ItemStack(this,1,0));
+	}
+
+	@Override
+	public boolean hasEffect(ItemStack stack, int pass){
+		int meta = stack.getItemDamage();
+		if (glows==null)
+			return super.hasEffect(stack, pass);
+		else for (int i = 0; i < glows.length; i++)
+			if (meta==glows[i])
+				return true;
+		return false;
+	}
+
+	@Override
 	public String getUnlocalizedName(ItemStack itemStack){
-		return String.format("item.%s%s",
-		                     Reference.MOD_ID.toLowerCase() + ":",
-		                     getUnwrappedUnlocalizedName(super.getUnlocalizedName()));
+		if (hasSubItems)
+			return String.format("item.%s%s",
+			                     Reference.MOD_ID.toLowerCase() + ":",
+			                     getUnwrappedUnlocalizedName(super.getUnlocalizedName()))
+			       +"."+subNames.get(itemStack.getItemDamage());
+		else
+			return String.format("item.%s%s",
+			                     Reference.MOD_ID.toLowerCase() + ":",
+			                     getUnwrappedUnlocalizedName(super.getUnlocalizedName()));
 	}
 
 	@Override

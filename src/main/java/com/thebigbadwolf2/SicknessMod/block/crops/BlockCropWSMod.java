@@ -208,7 +208,7 @@ public class BlockCropWSMod extends BlockBush implements IGrowable
 	public boolean func_149851_a(World parWorld, int parX, int parY, int parZ,
 	                             boolean p_149851_5_)
 	{
-		return parWorld.getBlockMetadata(parX, parY, parZ) != 7;
+		return true;// parWorld.getBlockMetadata(parX, parY, parZ) != 7;
 	}
 
 	/*

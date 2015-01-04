@@ -1,7 +1,9 @@
 package com.thebigbadwolf2.SicknessMod.item.armor;
 
 import com.thebigbadwolf2.SicknessMod.reference.Reference;
+import net.minecraft.client.gui.ScaledResolution;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -13,4 +15,6 @@ public class ItemArmorGasMask extends ItemArmorWSMod
 		super(ItemArmorWSMod.gasSuit,1,type);
 
 	}
+
+
 }

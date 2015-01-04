@@ -41,7 +41,7 @@ public class BlockRedDustCrop extends BlockCropWSMod
 	{
 		super.incrementGrowStage(world, rand, x, y, z);
 		if (world.getBlockMetadata(x,y,z)==7){
-			if (world.isAirBlock(x,y+1,z)||world.isAirBlock(x,y+2,z))
+			if (world.isAirBlock(x,y+1,z)&&world.isAirBlock(x,y+2,z))
 				if (rand.nextInt(20)==0){
 					world.setBlock(x,y,z, ModBlocks.redDustWeed,0,3);
 					world.setBlock(x,y+1,z, ModBlocks.redDustWeed,2,3);

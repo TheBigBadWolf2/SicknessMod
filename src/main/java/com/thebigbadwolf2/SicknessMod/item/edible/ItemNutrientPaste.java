@@ -13,8 +13,7 @@ public class ItemNutrientPaste extends ItemEdible
 	}
 
 	@Override
-	public ItemStack onEaten(ItemStack stack, World world, EntityPlayer player)
-	{
+	public ItemStack onEaten(ItemStack stack, World world, EntityPlayer player){
 		super.onEaten(stack, world, player);
 		return new ItemStack(Items.bowl);
 	}

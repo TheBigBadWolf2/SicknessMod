@@ -16,12 +16,16 @@ import com.thebigbadwolf2.SicknessMod.block.fire.BlockRedFire;
 import com.thebigbadwolf2.SicknessMod.block.machines.BlockBaseMachine;
 import com.thebigbadwolf2.SicknessMod.block.machines.BlockMachineDoor;
 import com.thebigbadwolf2.SicknessMod.block.machines.BlockMachineDoorControl;
+import com.thebigbadwolf2.SicknessMod.block.machines.BlockMachineDoorFrame;
 import com.thebigbadwolf2.SicknessMod.block.ore.BlockBlueOre;
 import com.thebigbadwolf2.SicknessMod.block.ore.BlockGreenOre;
 import com.thebigbadwolf2.SicknessMod.block.ore.BlockOre;
 import com.thebigbadwolf2.SicknessMod.block.ore.BlockRedOre;
 import com.thebigbadwolf2.SicknessMod.item.itemblock.ItemBlockMimic;
 import com.thebigbadwolf2.SicknessMod.reference.Reference;
+import com.thebigbadwolf2.SicknessMod.tileentity.TileEntityDoorControl;
+import com.thebigbadwolf2.SicknessMod.tileentity.TileEntityLight;
+import com.thebigbadwolf2.SicknessMod.tileentity.TileEntityWSMod;
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -36,6 +40,9 @@ public class ModBlocks
 
 	public static final BlockWSMod grassCement = new BlockGrassCement();
 	public static final BlockWSMod mimic = new BlockMimic();
+
+	public static final BlockWSMod lamp = new BlockLamp();
+	public static final BlockWSMod light = new BlockLight();
 
 	public static final BlockColoredFire redFire = new BlockRedFire();
 	public static final BlockColoredFire greenFire = new BlockGreenFire();
@@ -57,6 +64,7 @@ public class ModBlocks
 	public static final BlockWSMod decomp = new BlockDecomp();
 
 	public static final BlockBaseMachine doorControl = new BlockMachineDoorControl();
+	public static final BlockBaseMachine doorFrame = new BlockMachineDoorFrame();
 	public static final BlockBaseMachine door = new BlockMachineDoor();
 
 	public static void init(){
@@ -65,6 +73,9 @@ public class ModBlocks
 		GameRegistry.registerBlock(encrustedMycelium,"encrustedMycelium");
 		GameRegistry.registerBlock(decomp,"decomp");
 		GameRegistry.registerBlock(mimic, ItemBlockMimic.class,mimic.getName());
+		GameRegistry.registerBlock(lamp,"lamp");
+		GameRegistry.registerBlock(light,"light");
+		GameRegistry.registerTileEntity(TileEntityLight.class,"TileEntityLight");
 		registerFire();
 		registerOre();
 		registerCrops();
@@ -102,6 +113,8 @@ public class ModBlocks
 
 	private static void registerMachines(){
 		GameRegistry.registerBlock(doorControl,"doorControl");
+		GameRegistry.registerTileEntity(TileEntityDoorControl.class,"doorControlTileEntity");
+		GameRegistry.registerBlock(doorFrame,"doorFrame");
 		GameRegistry.registerBlock(door,"door");
 	}
 

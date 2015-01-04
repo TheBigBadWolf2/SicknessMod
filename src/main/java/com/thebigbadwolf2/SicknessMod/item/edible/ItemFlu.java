@@ -13,8 +13,12 @@ public class ItemFlu extends ItemSicknessPill
 	}
 
 	@Override
-	protected void onFoodEaten(ItemStack stack, World world, EntityPlayer player)
-	{
+	protected void onFoodEaten(ItemStack stack, World world, EntityPlayer player){
 		super.onFoodEaten(stack,world,player,ModPotion.potionSick.getId(),Integer.MAX_VALUE);
+	}
+
+	@Override
+	public boolean hasEffect(ItemStack stack, int pass){
+		return true;
 	}
 }

@@ -115,10 +115,18 @@ public class ModPotion extends Potion
 						}
 						break;
 					case 1:
+						if (entity.getEquipmentInSlot(4)!= null)
+						{
+							if (entity.getEquipmentInSlot(4).getItem() == ModItems.gasMask)
+							{
+								entity.removePotionEffect(poisonGas.id);
+								break;
+							}
+						}
 						if (tickBad[1]++ % 40 == 0)
 						{
-							if (Minecraft.getMinecraft().theWorld.rand.nextInt(20) == 0)
-								entity.attackEntityFrom(DamageSource.generic,5);
+							if (Minecraft.getMinecraft().theWorld.rand.nextInt(10) == 0)
+								entity.attackEntityFrom(DamageSource.generic,5*entity.getActivePotionEffect(poisonGas).getAmplifier()+5);
 						}
 
 						if (entity.getActivePotionEffect(poisonGas).getDuration() == 0)

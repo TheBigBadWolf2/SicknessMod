@@ -108,13 +108,10 @@ public class BlockWeed extends BlockCropWSMod implements IGrowable
 		if (world.isAirBlock(x,y-1,z))return false;
 		if (meta == 0)
 			return canPlaceBlockOn(world.getBlock(x,y-1,z));
-		else if (meta == 1)
+		else if (meta == 1||meta==2)
 			return world.getBlock(x,y-1,z) == this&&
 			       (world.getBlockMetadata(x,y-1,z) == 0 ||
 			        world.getBlockMetadata(x,y-1,z) == 1);
-		else if (meta == 2)
-			return world.getBlock(x,y-1,z) == this&&
-			       world.getBlockMetadata(x,y-1,z) == 1;
 
 		return true;
 	}
@@ -132,18 +129,17 @@ public class BlockWeed extends BlockCropWSMod implements IGrowable
 	}
 
 	private boolean canGrow(World world, int x, int y, int z){
-		if (world.isAirBlock(x, y - 1, z)) world.setBlockToAir(x, y, z);
+		if (world.isAirBlock(x, y - 1, z)){
+			world.setBlockToAir(x, y, z);
+			return false;
+		}
 		if (world.getBlockMetadata(x,y,z)==2&&
-		    world.isAirBlock(x,y+1,z))
-		{
-			for (int i = 0; i > -6; i--)
-			{
-				if (world.getBlock(x, y + i, z) != this)
-				{
+		    world.isAirBlock(x,y+1,z)){
+			for (int i = 0; i > -6; i--){
+				if (world.getBlock(x, y + i, z) != this){
 					if (world.getBlockMetadata(x, y + i + 1, z) == 0)
 						return true;
-					else for (int j = 0; j > i ; j--)
-					{
+					else for (int j = 0; j > i ; j--){
 						if (world.getBlock(x,y+j,z)==this)
 						{
 							world.getBlock(x,y+j,z).dropBlockAsItem(world,x,y+j,z,0,0);
@@ -155,15 +151,14 @@ public class BlockWeed extends BlockCropWSMod implements IGrowable
 			}
 		}
 
-		if (world.getBlockMetadata(x, y - 6, z) != 0)
-		for (int j = 0; j > -6; j--)
-		{
+		/*if (world.getBlockMetadata(x, y - 6, z) != 0)
+		for (int j = 0; j > -6; j--){
 			if (world.getBlock(x,y+j,z)==this)
 			{
 				world.getBlock(x,y+j,z).dropBlockAsItem(world,x,y+j,z,0,0);
 				world.setBlockToAir(x, y + j, z);
 			}else break;
-		}
+		}*/
 
 		return false;
 	}

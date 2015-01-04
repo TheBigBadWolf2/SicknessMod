@@ -12,6 +12,9 @@ import net.minecraftforge.common.util.EnumHelper;
 public class ItemArmorWSMod extends ItemArmor
 {
 	public static ArmorMaterial gasSuit = EnumHelper.addArmorMaterial("gasSuit",100,new int[]{3, 8, 6, 3},30);
+	public static ArmorMaterial badSuit = EnumHelper.addArmorMaterial("badSuit",100,new int[]{3, 8, 6, 3},30);
+	public static ArmorMaterial goodSuit = EnumHelper.addArmorMaterial("goodSuit",100,new int[]{3, 8, 6, 3},30);
+
 
 	public ItemArmorWSMod(ArmorMaterial material, int render, int type)
 	{
@@ -22,7 +25,7 @@ public class ItemArmorWSMod extends ItemArmor
 	@Override
 	public String getArmorTexture(ItemStack stack, Entity entity, int slot, String type)
 	{
-		return Reference.MOD_ID + ":textures/items/" + this.getName() + "_" + (this.armorType == 2 ? "2" : "1") + ".png";
+		return Reference.MOD_ID + ":textures/armor/" + this.getName() + "_" + (this.armorType == 2 ? "2" : "1") + ".png";
 	}
 
 	private String Name(){

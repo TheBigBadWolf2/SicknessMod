@@ -16,8 +16,12 @@ public class ItemRegenMed extends ItemMedicine
 	}
 
 	@Override
-	protected void onFoodEaten(ItemStack stack, World world, EntityPlayer player)
-	{
+	protected void onFoodEaten(ItemStack stack, World world, EntityPlayer player){
 		super.onFoodEaten(stack,world,player,ModPotion.potionCure.getId(),200);
+	}
+
+	@Override
+	public boolean hasEffect(ItemStack stack, int pass){
+		return true;
 	}
 }
